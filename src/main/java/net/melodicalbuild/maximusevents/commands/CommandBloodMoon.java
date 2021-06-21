@@ -23,7 +23,6 @@ public class CommandBloodMoon implements CommandExecutor {
         if(Objects.requireNonNull(Bukkit.getWorld("world")).getTime() >= 12040) {
             String message = "&cYou can only schedule the event: &4Bloodmoon&c before the time change at 12040 Ticks...";
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
-            return true;
         } else {
             BloodMoonListener.EventEnabled = false;
             Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("MaximusEvents");
@@ -42,8 +41,8 @@ public class CommandBloodMoon implements CommandExecutor {
                     }
                 }
             }.runTaskTimer(plugin, 0, 600);
-            return true;
         }
+        return true;
     }
 
 }
