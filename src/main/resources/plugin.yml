@@ -1,0 +1,13 @@
+name: MaximusEvents
+version: 1.0
+main: net.melodicalbuild.maximusevents.MaximusEvents
+api-version: 1.17
+authors: [ MelodicAlbuild ]
+description: The Events Plugin for Maximus Server
+website: https://melodicalbuild.me
+
+commands:
+  bloodmoon:
+    description: The Blood Moon Event
+    usage: /bloodmoon
+    permission: mev.events.bloodmoon, mev.events.*
