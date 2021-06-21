@@ -21,7 +21,7 @@ public class BloodMoonListener implements Listener{
     }
 
     @EventHandler
-    public void onBloodMoonEvent(BloodMoonEvent event) throws InterruptedException {
+    public void onBloodMoonEvent(BloodMoonEvent event) {
         Server server = Bukkit.getServer();
         BloodMoonTitles.Starting(server);
 
@@ -43,7 +43,7 @@ public class BloodMoonListener implements Listener{
 
             String message = "&6[&4Broadcast&6]&f The Bloodmoon is Over... For Now...";
             server.broadcastMessage(ChatColor.translateAlternateColorCodes('&', message));
-        }, 100);
+        }, 12000);
 
     }
 }
