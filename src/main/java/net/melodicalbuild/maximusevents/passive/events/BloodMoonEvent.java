@@ -1,4 +1,4 @@
-package net.melodicalbuild.maximusevents.events;
+package net.melodicalbuild.maximusevents.passive.events;
 
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;

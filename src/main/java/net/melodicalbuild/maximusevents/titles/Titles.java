@@ -18,4 +18,20 @@ public class Titles {
             }
         }
     }
+
+    public static class Storyline {
+        public static class Default {
+            /**
+             *  Start an Event Without Giving Away the Title
+             *
+             * @param server  The Server at which to Execute the Message
+             * @param startTime  How long until the event in Minutes
+             */
+            public static void HiddenStart(Server server, String startTime) {
+                server.dispatchCommand(server.getConsoleSender(), "title @a times 50 100 30");
+                server.dispatchCommand(server.getConsoleSender(), "title @a title {\"text\":\"A Worldly Storyline\",\"color\":\"blue\",\"bold\":true}");
+                server.dispatchCommand(server.getConsoleSender(), "title @a subtitle {\"text\":\"A New Storyline is Beginning in " + startTime + " Minutes\",\"color\":\"aqua\"}");
+            }
+        }
+    }
 }

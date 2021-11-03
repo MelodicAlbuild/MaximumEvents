@@ -1,4 +1,4 @@
-package net.melodicalbuild.maximusevents.commands;
+package net.melodicalbuild.maximusevents.passive.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -10,11 +10,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
 
 public class CommandBossBarDrop implements CommandExecutor {
     @Override

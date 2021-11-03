@@ -1,7 +1,7 @@
-package net.melodicalbuild.maximusevents.listeners;
+package net.melodicalbuild.maximusevents.passive.listeners;
 
 import net.melodicalbuild.maximusevents.MaximusEvents;
-import net.melodicalbuild.maximusevents.events.BloodMoonEvent;
+import net.melodicalbuild.maximusevents.passive.events.BloodMoonEvent;
 import net.melodicalbuild.maximusevents.titles.Titles;
 import org.bukkit.*;
 import org.bukkit.event.EventHandler;

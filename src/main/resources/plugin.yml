@@ -1,5 +1,5 @@
 name: MaximusEvents
-version: 1.3
+version: 1.2.1
 main: net.melodicalbuild.maximusevents.MaximusEvents
 api-version: 1.17
 authors: [ MelodicAlbuild ]
@@ -15,3 +15,7 @@ commands:
     description: The Bossbar Decrese System
     usage: /bossbar <bossbarid> <increment>
     permission: mev.bossbardrop
+  announceevent:
+    description: Announce a Storyline Event
+    usage: /announceevent <time>
+    permission: mev.events.announce

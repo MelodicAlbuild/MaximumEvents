@@ -1,8 +1,7 @@
-package net.melodicalbuild.maximusevents.commands;
+package net.melodicalbuild.maximusevents.passive.commands;
 
-import net.melodicalbuild.maximusevents.MaximusEvents;
-import net.melodicalbuild.maximusevents.events.BloodMoonEvent;
-import net.melodicalbuild.maximusevents.listeners.BloodMoonListener;
+import net.melodicalbuild.maximusevents.passive.events.BloodMoonEvent;
+import net.melodicalbuild.maximusevents.passive.listeners.BloodMoonListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -12,8 +11,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Objects;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.logging.Logger;
 
 public class CommandBloodMoon implements CommandExecutor {
