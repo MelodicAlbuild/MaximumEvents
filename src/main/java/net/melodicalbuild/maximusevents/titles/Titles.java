@@ -33,5 +33,25 @@ public class Titles {
                 server.dispatchCommand(server.getConsoleSender(), "title @a subtitle {\"text\":\"A New Storyline is Beginning in " + startTime + " Minutes\",\"color\":\"aqua\"}");
             }
         }
+        public static class VoidLine {
+            public static void LineEnd(Server server) {
+                server.dispatchCommand(server.getConsoleSender(), "title @a times 50 100 30");
+                server.dispatchCommand(server.getConsoleSender(),
+                        "title @a title {\"text\":\"The Void Chronicles\",\"color\":\"dark_purple\",\"bold\":true}");
+                server.dispatchCommand(server.getConsoleSender(),
+                        "title @a subtitle {\"text\":\"I Hope you Enjoyed this Storyline\",\"color\":\"light_purple\"}");
+                server.dispatchCommand(server.getConsoleSender(),
+                        "title @a actionbar {\"text\":\"The Void Will Return...\",\"color\":\"dark_red\"}");
+            }
+            
+            public static void LineStart(Server server, String startTime) {
+                server.dispatchCommand(server.getConsoleSender(), "title @a times 50 100 30");
+                server.dispatchCommand(server.getConsoleSender(),
+                        "title @a title {\"text\":\"The Void Chronicles\",\"color\":\"blue\",\"bold\":true}");
+                server.dispatchCommand(server.getConsoleSender(),
+                        "title @a subtitle {\"text\":\"The Void Will Arrive in " + startTime
+                                + " Minutes\",\"color\":\"aqua\"}");
+            }
+        }
     }
 }
