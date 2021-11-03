@@ -6,9 +6,6 @@ import net.melodicalbuild.maximusevents.titles.Titles;
 import org.bukkit.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.scheduler.BukkitTask;
-
-import java.util.logging.Logger;
 
 public class BloodMoonListener implements Listener{
     private final MaximusEvents plugin;
@@ -32,9 +29,7 @@ public class BloodMoonListener implements Listener{
         world.setTime(18000L);
         world.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
 
-        Logger logger = Bukkit.getLogger();
-
-        BukkitTask task = Bukkit.getScheduler().runTaskLater(plugin, () -> {
+        Bukkit.getScheduler().runTaskLater(plugin, () -> {
             Titles.Passive.Bloodmoon.Ending(server);
             world.setAmbientSpawnLimit(object);
             world.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, true);

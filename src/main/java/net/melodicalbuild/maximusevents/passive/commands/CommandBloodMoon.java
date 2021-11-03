@@ -11,7 +11,6 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Objects;
-import java.util.logging.Logger;
 
 public class CommandBloodMoon implements CommandExecutor {
     private static final BloodMoonEvent bloodmoonEvent = new BloodMoonEvent();
@@ -24,7 +23,6 @@ public class CommandBloodMoon implements CommandExecutor {
             BloodMoonListener.EventEnabled = false;
             Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("MaximusEvents");
             assert plugin != null;
-            Logger logger = Bukkit.getLogger();
 
             String message = "&3[&aMaximus Events&3]&f: &4Bloodmoon&f Scheduled for the next Night.";
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', message));

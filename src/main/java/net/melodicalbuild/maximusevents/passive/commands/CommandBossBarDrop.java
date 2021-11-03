@@ -3,7 +3,6 @@ package net.melodicalbuild.maximusevents.passive.commands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
-import org.bukkit.Server;
 import org.bukkit.boss.BossBar;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,7 +14,6 @@ public class CommandBossBarDrop implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("MaximusEvents");
-        Server server = Bukkit.getServer();
         assert plugin != null;
         final double[] value = {1};
         if(args[0] != null && args[1] != null) {
