@@ -1,5 +1,6 @@
 package net.melodicalbuild.maximusevents.storyline.lines;
 
+import net.melodicalbuild.maximusevents.MaximusEvents;
 import net.melodicalbuild.maximusevents.storyline.classes.MaxEvent;
 import net.melodicalbuild.maximusevents.titles.Titles;
 
@@ -11,12 +12,14 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.plugin.Plugin;
 
 public class VoidLine {
+    private static MaximusEvents events;
     private static List<MaxEvent> EventList;
-    private static int LinePos = 0;
+    private static int LinePos;
 
     public static void FinishEvent() {
         if(LinePos != EventList.size()) {
             LinePos++;
+            events.config.getConfig().set("VoidEventPosition", LinePos);
         } else {
             EndStoryline();
         }
@@ -29,7 +32,10 @@ public class VoidLine {
 
     public static int i = 0;
 
-    public static void StartEventCountdown() {
+    public static void StartEventCountdown(MaximusEvents eventsN) {
+        events = eventsN;
+        events.config.getConfig().getInt("VoidEventPosition");
+
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("MaximusEvents");
         assert plugin != null;
 
