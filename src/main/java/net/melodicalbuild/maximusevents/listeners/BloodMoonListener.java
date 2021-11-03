@@ -2,14 +2,12 @@ package net.melodicalbuild.maximusevents.listeners;
 
 import net.melodicalbuild.maximusevents.MaximusEvents;
 import net.melodicalbuild.maximusevents.events.BloodMoonEvent;
-import net.melodicalbuild.maximusevents.runnables.BloodMoonEnd;
-import net.melodicalbuild.maximusevents.titles.BloodMoonTitles;
+import net.melodicalbuild.maximusevents.titles.Titles;
 import org.bukkit.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitTask;
 
-import java.util.Objects;
 import java.util.logging.Logger;
 
 public class BloodMoonListener implements Listener{
@@ -23,7 +21,7 @@ public class BloodMoonListener implements Listener{
     @EventHandler
     public void onBloodMoonEvent(BloodMoonEvent event) {
         Server server = Bukkit.getServer();
-        BloodMoonTitles.Starting(server);
+        Titles.Passive.Bloodmoon.Starting(server);
 
         World world = Bukkit.getWorld("world");
 
@@ -36,8 +34,8 @@ public class BloodMoonListener implements Listener{
 
         Logger logger = Bukkit.getLogger();
 
-        Bukkit.getScheduler().runTaskLater(plugin, () -> {
-            BloodMoonTitles.Ending(server);
+        BukkitTask task = Bukkit.getScheduler().runTaskLater(plugin, () -> {
+            Titles.Passive.Bloodmoon.Ending(server);
             world.setAmbientSpawnLimit(object);
             world.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, true);
 

@@ -1,6 +1,7 @@
 package net.melodicalbuild.maximusevents;
 
 import net.melodicalbuild.maximusevents.commands.CommandBloodMoon;
+import net.melodicalbuild.maximusevents.commands.CommandBossBarDrop;
 import net.melodicalbuild.maximusevents.listeners.BloodMoonListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -14,6 +15,7 @@ public final class MaximusEvents extends JavaPlugin {
     public void onEnable() {
         //Commands
         Objects.requireNonNull(this.getCommand("bloodmoon")).setExecutor(new CommandBloodMoon());
+        Objects.requireNonNull(this.getCommand("bossbardrop")).setExecutor(new CommandBossBarDrop());
 
         //Listeners
         getServer().getPluginManager().registerEvents(new BloodMoonListener(this), this);
