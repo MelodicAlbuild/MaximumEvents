@@ -1,0 +1,8 @@
+name: MaximusEvents
+version: '${project.version}'
+main: net.melodicalbuild.MaximusEvents
+api-version: 1.17
+prefix: "[MaximusEvents]:"
+authors: [ MelodicAlbuild ]
+description: The Events Plugin for the Maximus SMP
+website: https://melodicalvbuild.me
