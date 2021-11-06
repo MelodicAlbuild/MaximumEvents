@@ -1,51 +1,32 @@
-package net.melodicalbuild.maximusevents.doctor;
+package net.melodicalbuild.maximusevents.doctor.commands;
 
 import net.citizensnpcs.api.CitizensAPI;
 import net.citizensnpcs.api.npc.NPC;
-import net.citizensnpcs.api.trait.trait.Equipment;
-import net.melodicalbuild.maximusevents.doctor.messagelines.BeginningLine;
-import net.melodicalbuild.maximusevents.titles.Titles;
-import org.bukkit.*;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
+import org.bukkit.Bukkit;
+import org.bukkit.Color;
+import org.bukkit.Location;
+import org.bukkit.Particle;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
-import xyz.xenondevs.particle.ParticleBuilder;
-import xyz.xenondevs.particle.ParticleEffect;
 
 import java.util.Objects;
 
-public class FirstEncounter {
+public class ParticleTest implements CommandExecutor {
 
-    static NPC wagner;
-    static int i = 0;
+    public int i = 0;
 
-    public static void Begin(Player player) {
-        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("MaximusEvents");
-        assert plugin != null;
-        wagner = CitizensAPI.getNPCRegistry().getById(0);
-        wagner.setName("&6[&1Head Scientist&6] &fDr.Wagner");
-        wagner.setProtected(true);
-
-        Server server = Bukkit.getServer();
-        Titles.Doctor.Default.Beginning(server);
-
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                BeginningLine.Start();
-            }
-        }.runTaskLater(plugin, 180);
-    }
-
-    public static void Return() {
-        wagner.getOrAddTrait(Equipment.class).set(Equipment.EquipmentSlot.HAND, new ItemStack(Material.SPLASH_POTION, 1));
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        NPC wagner = CitizensAPI.getNPCRegistry().getById(0);
         Location location = wagner.getEntity().getLocation();
         Location particleLoc = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ());
 
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("MaximusEvents");
         assert plugin != null;
+
         BukkitRunnable run2 = new BukkitRunnable() {
             @Override
             public void run() {
@@ -95,5 +76,10 @@ public class FirstEncounter {
                 }
             }
         }.runTaskTimer(plugin, 0, 20);
+//        new ParticleBuilder(ParticleEffect.FLAME, location)
+//                .setOffsetY(1f)
+//                .setSpeed(0.1f)
+//                .display();
+        return true;
     }
 }

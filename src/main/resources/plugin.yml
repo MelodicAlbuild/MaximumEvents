@@ -1,8 +1,38 @@
 name: MaximusEvents
 version: '${project.version}'
-main: net.melodicalbuild.MaximusEvents
+main: net.melodicalbuild.maximusevents.MaximusEvents
 api-version: 1.17
-prefix: "[MaximusEvents]:"
+prefix: MaximusEvents
 authors: [ MelodicAlbuild ]
 description: The Events Plugin for the Maximus SMP
 website: https://melodicalvbuild.me
+
+commands:
+  bloodmoon:
+    description: The Blood Moon Event
+    usage: /bloodmoon
+    permission: mev.events.bloodmoon
+  bossbardrop:
+    description: The Bossbar Decrese System
+    usage: /bossbar <bossbarid> <increment>
+    permission: mev.bossbardrop
+  announceevent:
+    description: Announce a Storyline Event
+    usage: /announceevent <time>
+    permission: mev.events.announce
+  startline:
+    description: Start a Storyline
+    usage: /startline <linename>
+    permission: mev.events.start
+  doctor:
+    description: The Doctor Event
+    usage: /doctor <operator>
+    permission: mev.events.doctor
+  asdoctor:
+    description: The Doctor Broadcast
+    usage: /asdoctor <message>
+    permission: mev.events.asdoctor
+  particletest:
+    description: Test the Particle System
+    usage: /particletest
+    permission: mev.events.particles

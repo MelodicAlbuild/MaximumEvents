@@ -54,4 +54,20 @@ public class Titles {
             }
         }
     }
+
+    public static class Doctor {
+        public static class Default {
+            public static void Beginning(Server server) {
+                server.dispatchCommand(server.getConsoleSender(), "title @a times 50 100 30");
+                server.dispatchCommand(server.getConsoleSender(), "title @a title {\"text\":\"Maximus SMP\",\"color\":\"gold\",\"bold\":true}");
+                server.dispatchCommand(server.getConsoleSender(), "title @a subtitle {\"text\":\"Season 2\",\"color\":\"red\"}");
+            }
+
+            public static void Ending(Server server) {
+                server.dispatchCommand(server.getConsoleSender(), "title @a times 50 100 30");
+                server.dispatchCommand(server.getConsoleSender(), "title @a title {\"text\":\"Blood Moon\",\"color\":\"dark_red\",\"bold\":true}");
+                server.dispatchCommand(server.getConsoleSender(), "title @a subtitle {\"text\":\"The Blood Moon is Falling...\",\"color\":\"red\"}");
+            }
+        }
+    }
 }
