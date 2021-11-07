@@ -1,9 +1,9 @@
 package net.melodicalbuild.maximusevents;
 
 import net.melodicalbuild.maximusevents.classes.YamlConfig;
-import net.melodicalbuild.maximusevents.doctor.commands.AsWagner;
-import net.melodicalbuild.maximusevents.doctor.commands.ParticleTest;
-import net.melodicalbuild.maximusevents.doctor.commands.StartFirstEncounter;
+import net.melodicalbuild.maximusevents.doctor.commands.*;
+import net.melodicalbuild.maximusevents.doctor.listeners.PlayerChatControl;
+import net.melodicalbuild.maximusevents.doctor.listeners.PlayerJoinListener;
 import net.melodicalbuild.maximusevents.passive.commands.CommandBloodMoon;
 import net.melodicalbuild.maximusevents.passive.commands.CommandBossBarDrop;
 import net.melodicalbuild.maximusevents.passive.listeners.BloodMoonListener;
@@ -65,9 +65,15 @@ public final class MaximusEvents extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("doctor")).setExecutor(new StartFirstEncounter());
         Objects.requireNonNull(this.getCommand("asdoctor")).setExecutor(new AsWagner());
         Objects.requireNonNull(this.getCommand("particletest")).setExecutor(new ParticleTest());
+        Objects.requireNonNull(this.getCommand("maxtest")).setExecutor(new Test());
+        Objects.requireNonNull(this.getCommand("lockevent")).setExecutor(new LockServerWorld());
+        Objects.requireNonNull(this.getCommand("chatmute")).setExecutor(new MuteChatCommand());
+        Objects.requireNonNull(this.getCommand("doctorend")).setExecutor(new EndEvent());
 
         //Listeners
         getServer().getPluginManager().registerEvents(new BloodMoonListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerChatControl(), this);
     }
 
     private void SetupConfig() {

@@ -63,10 +63,25 @@ public class Titles {
                 server.dispatchCommand(server.getConsoleSender(), "title @a subtitle {\"text\":\"Season 2\",\"color\":\"red\"}");
             }
 
-            public static void Ending(Server server) {
+            public static void Ending1(Server server) {
+                server.dispatchCommand(server.getConsoleSender(), "title @a times 50 60 30");
+                server.dispatchCommand(server.getConsoleSender(), "title @a title {\"text\":\"Welcome...\",\"color\":\"gold\",\"bold\":true}");
+            }
+
+            public static void Ending2(Server server) {
+                server.dispatchCommand(server.getConsoleSender(), "title @a times 50 60 30");
+                server.dispatchCommand(server.getConsoleSender(), "title @a title {\"text\":\"to\",\"color\":\"gold\",\"bold\":true}");
+                server.dispatchCommand(server.getConsoleSender(), "title @a subtitle {\"text\":\"Season 2...\",\"color\":\"red\"}");
+            }
+
+            public static void Ending3(Server server) {
+                server.dispatchCommand(server.getConsoleSender(), "title @a times 50 60 30");
+                server.dispatchCommand(server.getConsoleSender(), "title @a title {\"text\":\"of the...\",\"color\":\"gold\",\"bold\":true}");
+            }
+
+            public static void Ending4(Server server) {
                 server.dispatchCommand(server.getConsoleSender(), "title @a times 50 100 30");
-                server.dispatchCommand(server.getConsoleSender(), "title @a title {\"text\":\"Blood Moon\",\"color\":\"dark_red\",\"bold\":true}");
-                server.dispatchCommand(server.getConsoleSender(), "title @a subtitle {\"text\":\"The Blood Moon is Falling...\",\"color\":\"red\"}");
+                server.dispatchCommand(server.getConsoleSender(), "title @a title {\"text\":\"Maximus SMP\",\"color\":\"gold\",\"bold\":true}");
             }
         }
     }

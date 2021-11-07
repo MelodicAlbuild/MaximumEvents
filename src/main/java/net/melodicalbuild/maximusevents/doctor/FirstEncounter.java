@@ -6,6 +6,7 @@ import net.citizensnpcs.api.trait.trait.Equipment;
 import net.melodicalbuild.maximusevents.doctor.messagelines.BeginningLine;
 import net.melodicalbuild.maximusevents.titles.Titles;
 import org.bukkit.*;
+import org.bukkit.block.Block;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -14,11 +15,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 import xyz.xenondevs.particle.ParticleBuilder;
 import xyz.xenondevs.particle.ParticleEffect;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class FirstEncounter {
 
-    static NPC wagner;
+    public static NPC wagner;
     static int i = 0;
 
     public static void Begin(Player player) {
@@ -69,6 +72,7 @@ public class FirstEncounter {
                         }
                     }
                     wagner.despawn();
+                    ToAlex();
                     this.cancel();
                 }
             }
@@ -95,5 +99,52 @@ public class FirstEncounter {
                 }
             }
         }.runTaskTimer(plugin, 0, 20);
+    }
+
+    public static void ToAlex() {
+        World world = Bukkit.getWorld("events");
+        for(Block block : FirstEncounter.blocksFromTwoPoints(new Location(world, -49, 88, -105), new Location(world, -49, 86, -107))) {
+            block.breakNaturally();
+        }
+        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("MaximusEvents");
+        assert plugin != null;
+        new BukkitRunnable() {
+
+            @Override
+            public void run() {
+                for(Block block : FirstEncounter.blocksFromTwoPoints(new Location(world, -49, 88, -105), new Location(world, -49, 86, -107))) {
+                    block.setType(Material.POLISHED_BLACKSTONE_BRICKS);
+                }
+            }
+        }.runTaskLater(plugin, 200);
+    }
+
+    public static List<Block> blocksFromTwoPoints(Location loc1, Location loc2)
+    {
+        List<Block> blocks = new ArrayList<Block>();
+
+        int topBlockX = (Math.max(loc1.getBlockX(), loc2.getBlockX()));
+        int bottomBlockX = (Math.min(loc1.getBlockX(), loc2.getBlockX()));
+
+        int topBlockY = (Math.max(loc1.getBlockY(), loc2.getBlockY()));
+        int bottomBlockY = (Math.min(loc1.getBlockY(), loc2.getBlockY()));
+
+        int topBlockZ = (Math.max(loc1.getBlockZ(), loc2.getBlockZ()));
+        int bottomBlockZ = (Math.min(loc1.getBlockZ(), loc2.getBlockZ()));
+
+        for(int x = bottomBlockX; x <= topBlockX; x++)
+        {
+            for(int z = bottomBlockZ; z <= topBlockZ; z++)
+            {
+                for(int y = bottomBlockY; y <= topBlockY; y++)
+                {
+                    Block block = Objects.requireNonNull(loc1.getWorld()).getBlockAt(x, y, z);
+
+                    blocks.add(block);
+                }
+            }
+        }
+
+        return blocks;
     }
 }

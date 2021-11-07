@@ -36,3 +36,19 @@ commands:
     description: Test the Particle System
     usage: /particletest
     permission: mev.events.particles
+  maxtest:
+    description: Test a command
+    usage: /test
+    permission: mev.tests
+  lockevent:
+    description: Lock the World Type to Events
+    usage: /lockevent
+    permission: mev.events.admin
+  chatmute:
+    description: Mute the Chat
+    usage: /chatmute
+    permission: ms.chat.mute
+  doctorend:
+    description: End the Doctor Event
+    usage: /doctorend
+    permission: mev.events.enddoctor

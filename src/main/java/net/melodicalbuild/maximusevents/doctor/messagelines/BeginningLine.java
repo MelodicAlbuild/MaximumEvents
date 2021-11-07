@@ -1,9 +1,8 @@
 package net.melodicalbuild.maximusevents.doctor.messagelines;
 
 import net.melodicalbuild.maximusevents.doctor.FirstEncounter;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Server;
+import org.bukkit.*;
+import org.bukkit.block.Block;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -32,6 +31,27 @@ public class BeginningLine {
         Server server = Bukkit.getServer();
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("MaximusEvents");
         assert plugin != null;
+
+        World world = Bukkit.getWorld("events");
+
+        for(Block block : FirstEncounter.blocksFromTwoPoints(new Location(world, -49, 88, -105), new Location(world, -49, 86, -107))) {
+            block.breakNaturally();
+        }
+
+        new BukkitRunnable() {
+
+            @Override
+            public void run() {
+                server.dispatchCommand(server.getConsoleSender(), "chatmute");
+                for(Block block : FirstEncounter.blocksFromTwoPoints(new Location(world, -49, 88, -105), new Location(world, -49, 86, -107))) {
+                    block.setType(Material.POLISHED_BLACKSTONE_BRICKS);
+                }
+                Continue(server, plugin);
+            }
+        }.runTaskLater(plugin, 1200);
+    }
+
+    public static void Continue(Server server, Plugin plugin) {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -44,7 +64,7 @@ public class BeginningLine {
                     this.cancel();
                 }
             }
-        }.runTaskTimer(plugin, 0, 180);
+        }.runTaskTimer(plugin, 200, 180);
     }
 
     public static class WagnerMessage {
